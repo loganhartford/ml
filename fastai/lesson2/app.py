@@ -13,7 +13,7 @@ def predict(img):
     pred,pred_idx,probs = learn.predict(img)
     return {labels[i]: float(probs[i]) for i in range(len(labels))}
 
-title = "Cat Vs Dog Detector"
+title = "Cat Detector"
 description = "A cat vs dog classifier trained on the Oxford Pets dataset with fastai."
 article="<p style='text-align: center'><a href='https://tmabraham.github.io/blog/gradio_hf_spaces_tutorial' target='_blank'>Blog post</a></p>"
 
