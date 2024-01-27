@@ -1,7 +1,6 @@
 import gradio as gr
 from fastai.vision.all import *
 import skimage
-print(gr.__version__)
 
 def label_func(f): return f[0].isupper()
 
@@ -30,5 +29,7 @@ examples = get_relative_file_paths("example_imgs")
 interpretation='default'
 enable_queue=True
 
-gr.Interface(fn=predict,inputs=gr.inputs.Image(shape=(512, 512)),outputs=gr.outputs.Label(num_top_classes=3),title=title,description=description,article=article,examples=examples,interpretation=interpretation,enable_queue=enable_queue).launch()
+# gr.Interface(fn=predict,inputs=gr.components.Image(shape=(512, 512)),outputs=gr.outputs.Label(num_top_classes=3),title=title,description=description,article=article,examples=examples,interpretation=interpretation,enable_queue=enable_queue).launch()
 
+demo = gr.Interface(fn=predict, inputs="image", outputs="label", title=title,description=description,article=article,examples=examples,)
+demo.launch()
